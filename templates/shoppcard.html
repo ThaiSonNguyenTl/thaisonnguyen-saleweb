@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Card</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+  {% include 'homepage/navigation.html' %}
+    <br><br><br><br>
+    <div class="container">
+        
+        <table class="w3-table w3-striped w3-bordered">
+           
+            <tr>
+              <th>Sản Phẩm </th>
+              <th class="w3-center">Tên sản phẩm</th>
+              <th class="w3-center">Size</th>
+              <th class="w3-center">Số Lượng</th>
+              <th class="w3-center">Giá</th>
+              <th></th>
+            </tr>
+           {% for product in allproduct %}           
+            <tr>
+              <td><img src="{{product.image}}" class="img-thumbnail" alt="" width="20%" alt=""></td>
+              <td class="w3-center">{{ product.title }}</td>
+              <td class="w3-center">{{ product.size }}</td>
+              <td class="w3-center">{{ product.count }}</td>
+              <td class="w3-center">{{ product.price }} VNĐ</td>
+              <td class="w3-center"><a href="{{ url_for('delete',productid = product.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+            </tr>                        
+            {% endfor %}
+          </table>
+          <h3 class="text-danger float-right">Total: {{ total }} VNĐ</h3> 
+       
+          <br><br>
+
+          <div class="container d-flex justify-content-end">
+            <div class="row">
+              <div class="col-md-6">
+                  <a href="{{ url_for('index') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> BACK HOME</button></a>
+              </div>
+              <div class="col-md-6">
+                  <a href="{{ url_for('payment') }}"><button class="w3-button w3-block w3-black"><i class="far fa-money-bill-alt"></i> THANH TOÁN</button></a>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+    {% include 'homepage/footer.html' %}
+</body>
+</html>

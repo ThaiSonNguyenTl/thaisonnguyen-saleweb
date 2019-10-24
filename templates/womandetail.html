@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail Product</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% include 'homepage/navigation.html' %}
+    <br><br><br><br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6"> 
+            <img src="{{woman_id.image}}" class="img-thumbnail" alt="" width="90%">
+            </div>
+            <div class="col-md-6">
+              <h3 class="font-weight-bold">{{ woman_id.title }}</h3>
+              <br><br>
+              <h3 class="text-danger"> Giá : {{ woman_id.price }} VNĐ </h3>
+              <br><br><br>
+              <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ url_for('woman') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> BACK SHOP</button></a>
+                </div>
+              <div class="col-md-6">
+                  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-block w3-black">BUY NOW</button>
+                  <div id="id01" class="w3-modal">
+                      <div class="w3-modal-content w3-animate-right w3-card-4">
+                        <header class="w3-container w3-light-gray"> 
+                          <span onclick="document.getElementById('id01').style.display='none'" 
+                          class="w3-button w3-display-topright">&times;</span>
+                          <h3 class="w3-center">CHI TIẾT ĐƠN HÀNG</h3>
+                        </header><br>
+                        <div class="w3-container">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <img src="{{woman_id.image}}" class="img-thumbnail float-right" alt="" width="55%">                          
+                            </div>
+                            <div class="col-md-6">
+                              <h5 class="text-primary">{{ woman_id.title }}</h5>
+                              <h5 class="text-danger">Giá: {{ woman_id.price }} VNĐ</h5> <br>                        
+                              <form method="post">
+                                <input list="sizes" name="size" required placeholder="Chọn size phù hợp với bạn..." style="width:60%" >                            
+                                <datalist id="sizes">
+                                  <option value="M">
+                                  <option value="L">
+                                  <option value="XL">
+                                  <option value="XXL">
+                                  <option value="29">
+                                  <option value="30">
+                                  <option value="31">
+                                  <option value="32">
+                                  <option value="33">
+                                </datalist>
+                              <br><br>                   
+                              <input class="w3-input w3-border" required name="count" type="number" min="1"  placeholder="Số lượng" style="width:30%">
+                              <br>                       
+                              <button type="submit" class="w3-button w3-block w3-black"><i class="fas fa-cart-arrow-down"></i> XEM VÀO GIỎ HÀNG</button> 
+                              <br>
+                             
+                              </form>                                        
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <a href="{{ url_for('woman') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> BACK SHOP</button></a>
+                                  </div>                                 
+                              </div>
+                            </div>                                                
+                          </div>                      
+                        </div><br><br>
+                        <footer class="w3-container w3-light-gray">
+                          <h3 class="text-dark font-weight-bold d-flex justify-content-center">  ༄༂BMM SHOP༄༂ </h3>
+                        </footer>
+                      </div>
+                  </div>            
+              </div>            
+              </div>
+            </div>
+    
+          </div>
+      </div>
+    {% include 'homepage/footer.html' %}
+</body>
+</html>

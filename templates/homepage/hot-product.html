@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+  <div class="d-flex justify-content-center"> <h1 class="text-dark" >FEATURED PRODUCTS <hr></h1></div>
+  <div class="container mr-4">
+      <div class="row">
+          <div class="col-md-4 col-sm-6">
+                <div class="card" style="width: 20rem;">
+                      <a href="{{ url_for('woman') }}">
+                          <img src="../../static/image/soMiHoa.jpg" class="card-img-top w3-hover-opacity" alt="" height="350px" >
+                      </a>
+                        <span class="w3-tag w3-display-topleft">New</span>
+                        <div class="card-body  justify-content-center">
+                          <h5 class="card-title text-center w3-hover-text-blue">Áo sơ mi hoa</h5>
+                          <a href="{{ url_for('woman') }}" class="d-flex justify-content-center text-dark">
+                            <button type="button" class="btn btn-light w3-hover-text-blue "> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                          </a>
+                        </div>
+                      </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+                <div class="card" style="width: 20rem;">
+                  <a href="{{ url_for('woman') }}">
+                      <img src="http://www.stylehanquoc.com/shopping/images/product/272/1563718323.jpg" class="card-img-top w3-hover-opacity" alt="" height="350px">
+                  </a>
+                       
+                        <span class="w3-tag w3-display-topleft">New</span>
+                        <div class="card-body justify-content-center">
+                          <h5 class="card-title text-center w3-hover-text-blue">Áo len mỏng dài xẻ lai</h5>
+                          <a href="{{ url_for('woman') }}" class="d-flex justify-content-center text-dark">
+                            <button type="button" class="btn btn-light w3-hover-text-blue"> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                          </a>
+                        </div>
+                  </div>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <div class="card" style="width: 20rem;">
+                 <a href="{{ url_for('woman') }}">
+                  <img src="http://www.stylehanquoc.com/shopping/images/product/178/1564473990.jpg" class="card-img-top w3-hover-opacity" alt="" height="350px">
+                 </a>                    
+                    <span class="w3-tag w3-display-topleft">New</span>
+                    <div class="card-body justify-content-center">
+                      <h5 class="card-title text-center w3-hover-text-blue">Áo khoác da tay kéo khóa</h5>
+                      <a href="{{ url_for('woman') }}" class="d-flex justify-content-center text-dark"> 
+                          <button type="button" class="btn btn-light w3-hover-text-blue "> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                      </a>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div> <br>
+  <div class="container mr-4">
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+              <div class="card" style="width: 20rem;">
+                <a href="{{ url_for('man') }}">
+                  <img src="https://cdn.shopify.com/s/files/1/0013/7982/7795/products/9889E3C8-344C-4b7a-A90C-79E36CF923C3_1024x1024_2x_1024x1024_2x_5d6d4fdb-6545-4095-9b89-6445afda20b2_1024x1024.png?v=1542164029" class="card-img-top w3-hover-opacity" alt="" height="350px" >
+                </a>                      
+                      <span class="w3-tag w3-display-topleft">New</span>
+                      <div class="card-body  justify-content-center">
+                        <h5 class="card-title text-center w3-hover-text-blue">Áo dạ choàng</h5>
+                        <a href="{{ url_for('man') }}" class="d-flex justify-content-center text-dark">
+                            <button type="button" class="btn btn-light w3-hover-text-blue"> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                        </a>
+                      </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+              <div class="card" style="width: 20rem;">
+                <a href="{{ url_for('man') }}">
+                  <img src="https://www.dhresource.com/0x0/f2/albu/g6/M01/84/F9/rBVaSFpwW_eAec8hAAiiIC7VsAo210.jpg" class="card-img-top w3-hover-opacity" alt="" height="350px">
+                </a>                      
+                      <span class="w3-tag w3-display-topleft">New</span>
+                      <div class="card-body justify-content-center">
+                        <h5 class="card-title text-center w3-hover-text-blue">Áo khoác bò</h5>
+                        <a href="{{ url_for('man') }}" class="d-flex justify-content-center text-dark">
+                            <button type="button" class="btn btn-light w3-hover-text-blue "> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                        </a>
+                      </div>
+                </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card" style="width: 20rem;">
+            <a href="{{ url_for('man') }}">
+                <img src="https://image.dhgate.com/0x0/f2/albu/g7/M00/AB/10/rBVaSltVlGiAD0VcAAFsVoMgZsg607.jpg" class="card-img-top w3-hover-opacity" alt="" height="350px">
+            </a>                 
+                  <span class="w3-tag w3-display-topleft">New</span>
+                  <div class="card-body justify-content-center">
+                    <h5 class="card-title text-center w3-hover-text-blue">Quần jean rách gối</h5>
+                    <a href="{{ url_for('man') }}" class="d-flex justify-content-center text-dark">
+                        <button type="button" class="btn btn-light w3-hover-text-blue"> <i class="fas fa-shopping-cart"> Buy Now</i></button>
+                    </a>
+                  </div>
+            </div>
+    </div>
+    </div>
+  </div>
+   
+</body>
+</html>
+
