@@ -3,4 +3,4 @@ class Clothers(Document):
     title = StringField()
     image = StringField()
     price = IntField()
-    gender = IntField()
+   

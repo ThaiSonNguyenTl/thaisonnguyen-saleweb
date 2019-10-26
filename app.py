@@ -112,7 +112,6 @@ def payment():
         return render_template('payment.html',indexnum = indexnum,allproduct = allproduct,total = total)
     else:
         form = request.form
-        
         customerinfor = Customerinfor(           
             title = product["title"],
             price = product["price"],
