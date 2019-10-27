@@ -11,28 +11,33 @@
         {% include 'homepage/navigation.html' %}
         <br><br><br>
       <div class="container my-4 mr-4 pl-2 pt-3">
-          <div class="row">
+        <div class="row">
              
              {% for cloth in all_clother %}
              <div class="col-md-4">
                   <div class="card" style="width: 20rem;">
-                    <a href="{{ url_for('womandetail',womanid = cloth.id) }}"> 
-                      <img src="{{cloth.image}}" class="card-img-top  w3-hover-opacity" alt="" height="350px" >
-                    </a>
+                    <div class="w3-display-container">
+                        <a href="{{ url_for('womandetail',womanid = cloth.id) }}"> 
+                            <img src="{{cloth.image}}" class="card-img-top  w3-hover-opacity" alt="" height="350px" >
+                        </a>
+                        <div class="w3-display-middle w3-display-hover">
+                            <a href="{{ url_for('womandetail',womanid = cloth.id) }}">                  
+                                <button type="button" class="w3-button w3-black">Buy Now <i class="fas fa-shopping-cart"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                   
                      
                       <div class="card-body  justify-content-center">
-                          <h5 class="card-title text-center w3-hover-text-blue">{{cloth.title}}</h5>
-                        <a href="{{ url_for('womandetail',womanid = cloth.id) }}" class="d-flex justify-content-center text-dark">                  
-                            <button type="button" class="btn btn-light w3-hover-text-blue"> <i class="fas fa-shopping-cart"> Buy Now</i></button>
-                        </a>
+                          <h5 class="card-title text-center w3-hover-text-blue">{{cloth.title}}</h5>                       
                       </div>
-                    </div>
+                  </div>
                     <br>
-          </div>
+             </div>
        {% endfor %}
         
+        </div>
       </div>
-    </div>
     {% include 'homepage/footer.html' %}
 </body>
 </html>
