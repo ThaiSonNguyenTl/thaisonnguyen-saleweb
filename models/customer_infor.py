@@ -1,4 +1,4 @@
-from mongoengine import Document,StringField,IntField,EmailField
+from mongoengine import Document,StringField,IntField,EmailField,ListField
 class Customerinfor(Document):
     name = StringField()
     numberphone = StringField()
@@ -6,9 +6,5 @@ class Customerinfor(Document):
     city = StringField()
     district = StringField()
     address = StringField()
-    title = StringField()
-    price = IntField()
-    image = StringField()
-    count = IntField()
-    size = StringField()
+    listordered = ListField()
     total = IntField()

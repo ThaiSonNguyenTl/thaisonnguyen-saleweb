@@ -45,7 +45,7 @@ def womandetail(womanid):
             size = form["size"],
             count = form["count"]
         )
-        orderproduct.save()       
+        orderproduct.save()  
         return redirect(url_for('shoppcard'))
     
 
@@ -105,19 +105,25 @@ def payment():
     allproduct = Orderproduct.objects()
     indexnum = 0 
     total = 0
+    listordered = []
     for product in allproduct:
         indexnum += 1
-        total += product.price * product.count 
+        total += product.price * product.count
+        title = product["title"]
+        price = product["price"]
+        size = product["size"]
+        count = product["count"]
+        listordered.append(title)
+        listordered.append(price)
+        listordered.append(count)
+        listordered.append(size)
     if request.method == "GET":
         return render_template('payment.html',indexnum = indexnum,allproduct = allproduct,total = total)
     else:
         form = request.form
         customerinfor = Customerinfor(           
-            title = product["title"],
-            price = product["price"],
-            image = product["image"],
-            size  = product["size"],
-            count = product["count"],
+            listordered = listordered,
+            total = total,
             name = form["name"],
             numberphone = form["numberphone"],
             mail = form["mail"],
