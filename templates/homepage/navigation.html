@@ -33,7 +33,13 @@
             </div> -->
            
             <li class="nav-item">
-                <a class="nav-link w3-hover-text-blue" href="{{ url_for('shoppcard') }}">{{ indexnum }}<i class="fas fa-cart-arrow-down"></i> </a>
+                
+                <div class="cart-hover">
+                  <a href="{{ url_for('shoppcard') }}">
+                    <img src="../../static/images/shopcard.png" class="w3-hover-text-blue" alt="">
+                      <span class="ctn crl-bg">{{ indexnum }}</span>
+                  </a>                      
+                 </div>
             </li>
           
           </ul>

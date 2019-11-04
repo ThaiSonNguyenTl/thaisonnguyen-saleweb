@@ -45,9 +45,8 @@ def womandetail(womanid):
             size = form["size"],
             count = form["count"]
         )
-        orderproduct.save()  
+        orderproduct.save() 
         return redirect(url_for('shoppcard'))
-    
 
 @app.route('/man')
 def man():
@@ -143,5 +142,8 @@ def success():
     all_orderproduct = Orderproduct.objects()
     all_orderproduct.delete()
     return render_template("success.html")
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

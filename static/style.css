@@ -1,0 +1,28 @@
+.cart-hover {
+    margin-top: 10px;
+    position: relative;
+   
+}
+.cart-hover .ctn {
+    color: #fff;
+    font-weight: 900;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -4px;
+    width: 20px;
+    border-radius: 2em;
+    font-size: 11px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.cart-hover .crl-bg {
+    background-color: #6bb42f;
+}
+
+.cart-hover .price {
+    margin-left: 15px;
+    font-weight: 500px;
+}	
+
