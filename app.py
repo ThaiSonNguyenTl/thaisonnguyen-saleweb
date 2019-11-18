@@ -141,7 +141,10 @@ def success():
     # delete product from the shopping card when order success
     all_orderproduct = Orderproduct.objects()
     all_orderproduct.delete()
-    return render_template("success.html")
+    indexnum = 0 
+    for i in all_orderproduct:
+        indexnum += 1
+    return render_template("success.html",indexnum = indexnum)
 
 
 
