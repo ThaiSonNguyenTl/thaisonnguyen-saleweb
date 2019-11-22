@@ -8,3 +8,4 @@ class Customerinfor(Document):
     address = StringField()
     listordered = ListField()
     total = IntField()
+    count = IntField()

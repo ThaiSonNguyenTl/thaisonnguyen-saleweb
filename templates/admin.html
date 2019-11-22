@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Infor</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    <div class="container">
+            <h2 class="text-success">Customer information management</h2><br>
+            <table class="w3-table-all">  
+                <tr>
+                  <th class="w3-center"> Sản phẩm </th>
+                  <th class="w3-center"> Tên sản phẩm</th>
+                  <th class="w3-center"> Số lượng từng sản phẩm</th>
+                  <th class="w3-center">Tên Khách Hàng </th>
+                  <th class="w3-center">Số điện thoại</th>
+                  <th class="w3-center">Email</th>
+                  <th class="w3-center">Địa chỉ</th>    
+                  <th class="w3-center">Tổng số lượng</th>  
+                  <th class="w3-center">Tổng tiền </th>
+                  <th></th>
+             
+                </tr>
+               {% for infor in all_infor %}           
+                <tr>
+                <td>
+                    {% for src in infor.listordered[1::3] %}
+                        <div><img src="{{ src }}" class="img-thumbnail" width="50px" height="50px"></div>
+                    {% endfor %}
+                </td>
+                <td class="w3-center">
+                    {% for i in infor.listordered[0::3]  %}
+                    <div>{{ i }}</div><br>
+                    {% endfor %}
+                </td>
+                <td class="w3-center">
+                    {% for c in infor.listordered[2::3]  %}
+                    <div>{{ c }}</div><br><br>
+                    {% endfor %}
+                </td>
+                
+                  <td class="w3-center">{{ infor.name }}</td>
+                  <td class="w3-center">{{ infor.numberphone }}</td>
+                  <td class="w3-center">{{ infor.mail }}</td>
+                  <td class="w3-center">{{ infor.address }},{{ infor.district }},{{ infor.city }}</td>
+                  <td class="w3-center">{{ infor.count }}</td>
+                  <td class="w3-center text-danger">{{ infor.total }} VNĐ</td>
+                  <td class="w3-center"><a href="{{ url_for('admindelete',inforid = infor.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+                 
+                </tr>                        
+                {% endfor %}
+              </table>
+
+    </div>
+</body>
+</html>

@@ -104,18 +104,18 @@ def payment():
     allproduct = Orderproduct.objects()
     indexnum = 0 
     total = 0
+    count = 0
     listordered = []
     for product in allproduct:
         indexnum += 1
         total += product.price * product.count
+        count += product.count
         title = product["title"]
-        price = product["price"]
-        size = product["size"]
-        count = product["count"]
+        image = product["image"]
+        everyProCount = product["count"]
         listordered.append(title)
-        listordered.append(price)
-        listordered.append(count)
-        listordered.append(size)
+        listordered.append(image)
+        listordered.append(everyProCount)
     if request.method == "GET":
         return render_template('payment.html',indexnum = indexnum,allproduct = allproduct,total = total)
     else:
@@ -123,6 +123,7 @@ def payment():
         customerinfor = Customerinfor(           
             listordered = listordered,
             total = total,
+            count = count,
             name = form["name"],
             numberphone = form["numberphone"],
             mail = form["mail"],
@@ -146,6 +147,18 @@ def success():
         indexnum += 1
     return render_template("success.html",indexnum = indexnum)
 
+@app.route('/admin')
+def admin():
+    all_infor = Customerinfor.objects()
+    return render_template("admin.html",all_infor = all_infor)
+@app.route('/admindelete/<inforid>')
+def admindelete(inforid):
+    admin_delete = Customerinfor.objects.with_id(inforid)
+    if admin_delete is not None:
+        admin_delete.delete()
+        return redirect(url_for('admin'))
+    else:
+        return "Service not found"
 
 
 if __name__ == '__main__':

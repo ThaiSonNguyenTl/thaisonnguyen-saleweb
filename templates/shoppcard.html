@@ -24,7 +24,7 @@
             </tr>
            {% for product in allproduct %}           
             <tr>
-              <td><img src="{{product.image}}" class="img-thumbnail" alt="" width="20%" alt=""></td>
+              <td><img src="{{product.image}}" class="img-thumbnail" alt="" width="20%"></td>
               <td class="w3-center">{{ product.title }}</td>
               <td class="w3-center">{{ product.size }}</td>
               <td class="w3-center">{{ product.count }}</td>
@@ -40,7 +40,7 @@
           <div class="container d-flex justify-content-end">
             <div class="row">
               <div class="col-md-6">
-                  <a href="{{ url_for('index') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> BACK HOME</button></a>
+                  <a href="{{ url_for('index') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> TIẾP TỤC MUA</button></a>
               </div>
               <div class="col-md-6">
                 <a href="{{ url_for('payment') }}"><button class="w3-button w3-block w3-black"><i class="far fa-money-bill-alt"></i> THANH TOÁN</button></a>                 
