@@ -33,19 +33,29 @@
             </tr>                        
             {% endfor %}
           </table>
-          <h3 class="text-danger float-right">Total: {{ total }} VNĐ</h3> 
+          <h3 class="text-danger float-right">Total: {{ total }} VNĐ</h3>
        
           <br><br>
 
           <div class="container d-flex justify-content-end">
-            <div class="row">
-              <div class="col-md-6">
-                  <a href="{{ url_for('index') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark w3-hover-text-red"></i> TIẾP TỤC MUA</button></a>
+              <div>
+                  {% if indexnum != 0 %}
+                  <a href="{{ url_for('payment') }}"><button class="w3-button w3-block w3-black"><i class="far fa-money-bill-alt"></i> THANH TOÁN</button></a>   
+                  {% else %}    
+                    <h4 class="text-warning">Không có sản phẩm trong giỏ hàng </h4>    
+                  {% endif %} 
               </div>
-              <div class="col-md-6">
-                <a href="{{ url_for('payment') }}"><button class="w3-button w3-block w3-black"><i class="far fa-money-bill-alt"></i> THANH TOÁN</button></a>                 
-              </div>
-            </div>
+              <br><br>
+                  <div class="col-md-6 d-flex justify-content-end">
+                      <div class="row">
+                          <div class="col-md-6">
+                              <a href="{{ url_for('woman') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark"></i> TIẾP TỤC MUA ĐỒ NỮ</button></a>
+                          </div>
+                          <div class="col-md-6">
+                              <a href="{{ url_for('man') }}"><button class="w3-button w3-block w3-black"><i class="fa fa-arrow-left text-dark"></i> TIẾP TỤC MUA ĐỒ NAM</button></a>
+                          </div>
+                      </div>   
+                  </div>
           </div>
           
     </div>
