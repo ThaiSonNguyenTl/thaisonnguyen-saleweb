@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>adminProduct</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+   
+    <div class="container">
+        <h1>Admin Product</h1>
+        <table class="w3-table w3-striped">  
+            <tr>
+              <th class="w3-center">STT</th> 
+              <th class="w3-center"> Sản phẩm </th>
+              <th class="w3-center"> Tên sản phẩm</th>
+              <th class="w3-center">Giá </th>
+              <th></th>
+            </tr>
+           {% for productMan in allproduct %}            
+            <tr>
+                <td class="w3-center">{{ loop.index }}</td>
+                <td class="w3-center"><img src="{{productMan.image}}" class="img-thumbnail" alt="" width="15%"></td>
+                <td class="w3-center">{{ productMan.title }}</td>
+                <td class="w3-center">{{ productMan.price }}</td>
+                <td class="w3-center"><a href="#"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+                <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
+            </tr>                   
+            {% endfor %}
+            {% for productWoman in all_clother %}    
+            <tr>
+                <td class="w3-center">{{ loop.index + 24 }}</td>
+                <td class="w3-center"><img src="{{productWoman.image}}" class="img-thumbnail" alt="" width="15%"></td>
+                <td class="w3-center">{{ productWoman.title }}</td>
+                <td class="w3-center">{{ productWoman.price }}</td>
+                <td class="w3-center"><a href="#"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+                <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
+             </tr>
+            {% endfor %}  
+          </table>
+
+</div>
+</body>
+</html>

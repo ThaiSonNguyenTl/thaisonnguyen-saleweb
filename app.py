@@ -160,6 +160,15 @@ def admindelete(inforid):
     else:
         return "Service not found"
 
+@app.route('/adminProduct')
+def adminProduct():
+    allproduct = Mancloth.objects()
+    all_clother = Clothers.objects()
+    return render_template("adminProduct.html",allproduct = allproduct,all_clother = all_clother)
+
+@app.route('/adminAll')
+def adminAll():
+    return render_template("adminAll.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
