@@ -78,7 +78,6 @@ def detail(imgid):
         orderproduct.save()        
         return redirect(url_for('shoppcard'))  
   
-
 @app.route('/shoppcard')
 def shoppcard():
     allproduct = Orderproduct.objects()
@@ -88,7 +87,7 @@ def shoppcard():
         indexnum += 1
         total += product.price * product.count         
     return render_template("shoppcard.html", allproduct = allproduct,total = total,indexnum = indexnum)
-
+# delete product in shopcard
 @app.route('/delete/<productid>')
 def delete(productid):
     product_to_delete = Orderproduct.objects.with_id(productid)
@@ -97,7 +96,6 @@ def delete(productid):
         return redirect(url_for('shoppcard'))
     else:
         return "Service not found"
-
 
 @app.route('/payment', methods = ["GET","POST"])
 def payment():
@@ -133,10 +131,8 @@ def payment():
            
         )
         customerinfor.save()
-        
         return redirect(url_for('success'))
     
- 
 @app.route('/success')
 def success():
     # delete product from the shopping card when order success
@@ -146,11 +142,12 @@ def success():
     for i in all_orderproduct:
         indexnum += 1
     return render_template("success.html",indexnum = indexnum)
-
+# admin customer order product
 @app.route('/admin')
 def admin():
     all_infor = Customerinfor.objects()
     return render_template("admin.html",all_infor = all_infor)
+# delete infor customer order
 @app.route('/admindelete/<inforid>')
 def admindelete(inforid):
     admin_delete = Customerinfor.objects.with_id(inforid)
@@ -159,12 +156,61 @@ def admindelete(inforid):
         return redirect(url_for('admin'))
     else:
         return "Service not found"
-
+# admin all product man,woman
 @app.route('/adminProduct')
 def adminProduct():
     allproduct = Mancloth.objects()
     all_clother = Clothers.objects()
-    return render_template("adminProduct.html",allproduct = allproduct,all_clother = all_clother)
+    x = len(allproduct)
+    return render_template("adminProduct.html",allproduct = allproduct,all_clother = all_clother,x=x)
+# delete product man
+@app.route('/deleteProduct/<productid>')
+def deleteProduct(productid):
+    product_delete = Mancloth.objects.with_id(productid)
+    if product_delete is not None:
+        product_delete.delete()
+        return redirect(url_for('adminProduct'))
+    else:
+        return "Service not found"
+# repair product man
+
+# delete product woman
+@app.route('/deleteWoman/<prodwomanid>')
+def deleteWoman(prodwomanid):
+    delete_product_woman = Clothers.objects.with_id(prodwomanid)
+    if delete_product_woman is not None:
+        delete_product_woman.delete()
+        return redirect(url_for('adminProduct'))
+    else:
+        return "Service not found"
+
+@app.route('/createWoman', methods = ["GET","POST"])
+def createWoman():
+    if request.method == "GET":
+        return render_template("createWoman.html")
+    else:
+        form = request.form
+        createwoman = Clothers(
+            title = form["title"],
+            image = form["image"],
+            price = form["price"]
+        )
+        createwoman.save()
+        return redirect(url_for('adminProduct'))
+
+@app.route('/createMan', methods = ["GET","POST"])
+def createMan():
+    if request.method == "GET":
+        return render_template("createMan.html")
+    else:
+        form = request.form
+        createman = Mancloth(
+            title = form["title"],
+            image = form["image"],
+            price = form["price"]
+        )
+        createman.save()
+        return redirect(url_for('adminProduct'))
 
 @app.route('/adminAll')
 def adminAll():

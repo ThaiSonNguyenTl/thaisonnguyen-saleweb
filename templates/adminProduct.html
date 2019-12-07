@@ -10,7 +10,17 @@
 <body>
    
     <div class="container">
-        <h1>Admin Product</h1>
+        
+    <div class="btn-group mt-4">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Thêm sản phẩm
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{url_for('createMan')}}">Man</a>
+          <a class="dropdown-item" href="{{url_for('createWoman')}}">Woman</a>
+        </div>
+    </div>
+        <h3>Danh sách sản phẩm</h3>
         <table class="w3-table w3-striped">  
             <tr>
               <th class="w3-center">STT</th> 
@@ -25,17 +35,17 @@
                 <td class="w3-center"><img src="{{productMan.image}}" class="img-thumbnail" alt="" width="15%"></td>
                 <td class="w3-center">{{ productMan.title }}</td>
                 <td class="w3-center">{{ productMan.price }}</td>
-                <td class="w3-center"><a href="#"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+                <td class="w3-center"><a href="{{ url_for('deleteProduct',productid = productMan.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
                 <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
             </tr>                   
             {% endfor %}
             {% for productWoman in all_clother %}    
             <tr>
-                <td class="w3-center">{{ loop.index + 24 }}</td>
+                <td class="w3-center">{{ loop.index + x }} </td>
                 <td class="w3-center"><img src="{{productWoman.image}}" class="img-thumbnail" alt="" width="15%"></td>
                 <td class="w3-center">{{ productWoman.title }}</td>
                 <td class="w3-center">{{ productWoman.price }}</td>
-                <td class="w3-center"><a href="#"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
+                <td class="w3-center"><a href="{{ url_for('deleteWoman',prodwomanid = productWoman.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
                 <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
              </tr>
             {% endfor %}  
