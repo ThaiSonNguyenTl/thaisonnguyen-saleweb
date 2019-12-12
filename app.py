@@ -172,7 +172,6 @@ def deleteProduct(productid):
         return redirect(url_for('adminProduct'))
     else:
         return "Service not found"
-# repair product man
 
 # delete product woman
 @app.route('/deleteWoman/<prodwomanid>')

@@ -36,7 +36,7 @@
                 <td class="w3-center">{{ productMan.title }}</td>
                 <td class="w3-center">{{ productMan.price }}</td>
                 <td class="w3-center"><a href="{{ url_for('deleteProduct',productid = productMan.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
-                <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
+                
             </tr>                   
             {% endfor %}
             {% for productWoman in all_clother %}    
@@ -46,7 +46,7 @@
                 <td class="w3-center">{{ productWoman.title }}</td>
                 <td class="w3-center">{{ productWoman.price }}</td>
                 <td class="w3-center"><a href="{{ url_for('deleteWoman',prodwomanid = productWoman.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
-                <td class="w3-center"><a href="#"><i class="fas fa-wrench text-dark w3-hover-text-red"> Sửa</i></a></td>
+               
              </tr>
             {% endfor %}  
           </table>
