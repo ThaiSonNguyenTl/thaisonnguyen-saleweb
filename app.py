@@ -5,6 +5,8 @@ from models.mancloth import Mancloth
 from models.orderproduct import Orderproduct
 from models.customer_infor import Customerinfor
 app = Flask(__name__)
+# session required a secret key . 
+app.secret_key = "very secret key"
 
 mlab.connect()
 
@@ -213,7 +215,29 @@ def createMan():
 
 @app.route('/adminAll')
 def adminAll():
-    return render_template("adminAll.html")
+    if "token" in session:
+        return render_template("adminAll.html")
+    else:
+        return redirect(url_for("login"))
+@app.route('/login',methods = ["GET","POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    elif request.method == "POST":
+        form = request.form
+        username = form["username"]
+        password = form["password"]
+
+        if username =="admin" and password =="admin":
+            # add a key into dictionary: namedict["namekey"]
+            session["token"] = True
+            return redirect(url_for("adminAll"))
+        else:
+            return "Login False"
+@app.route('/logout')
+def logout():
+    del session['token']
+    return redirect(url_for("login"))        
 
 if __name__ == '__main__':
     app.run(debug=True)

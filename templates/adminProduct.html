@@ -45,12 +45,14 @@
                 <td class="w3-center"><img src="{{productWoman.image}}" class="img-thumbnail" alt="" width="15%"></td>
                 <td class="w3-center">{{ productWoman.title }}</td>
                 <td class="w3-center">{{ productWoman.price }}</td>
-                <td class="w3-center"><a href="{{ url_for('deleteWoman',prodwomanid = productWoman.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>
-               
+                <td class="w3-center"><a href="{{ url_for('deleteWoman',prodwomanid = productWoman.id) }}"><i class="fa fa-trash text-dark w3-hover-text-red"> Xóa</i></a></td>               
              </tr>
             {% endfor %}  
           </table>
-
+          <br>
+          <a href="{{ url_for('adminAll') }}"> <button class="w3-button w3-black float-md-right">Thoát</button></a> <br><br>
+          
 </div>
+<a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom float-md-right"><i class="fa fa-arrow-up w3-margin-right"></i></a>
 </body>
 </html>

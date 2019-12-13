@@ -8,9 +8,18 @@
     {% include "meta-data.html" %}
 </head>
 <body>
-    <div class="container mt-4">
-            <a href="{{ url_for('admin') }}"> <button type="button" class="btn btn-success">Quản lý đơn hàng </button></a> 
-            <a href="{{ url_for('adminProduct') }}"> <button type="button" class="btn btn-success">Quản lý danh sách sản phẩm</button></a> 
+    <div class="container" style="margin-top:60px;">
+        <a href="{{ url_for('logout') }}" class="d-flex justify-content-end "> <button class="w3-button w3-red w3-round">Đăng xuất</button></a>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                    <a href="{{ url_for('admin') }}"> <button class="w3-btn w3-round w3-indigo w3-xxlarge">Quản lý đơn hàng </button></a> 
+            </div>
+            <div class="col-md-6">
+                    <a href="{{ url_for('adminProduct') }}"> <button class="w3-btn w3-round w3-indigo w3-xxlarge">Quản lý danh sách sản phẩm</button></a> 
+            </div>
+        </div>
+        
     </div>
    
    
